@@ -1,11 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 public class  BookManager {
     public static ArrayList<Book> bookList = new ArrayList<>();
     static ArrayList<Book> bookWaitList = new ArrayList<>();
+    static String file;
     public static void addBookFromFile(String filename) throws IOException {
+        file = filename;
         // tested
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = br.readLine();
@@ -79,6 +82,15 @@ public class  BookManager {
                 addToWaitList(b);
             }
         }
+        try {
+            FileWriter writer = new FileWriter(file);
+            for (Book b: bookList){
+                writer.write(b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID() + "\n");
+            }
+            writer.close();
+        }catch(IOException ex) {
+            System.out.println("Error.");
+        }
     }
     public static void checkInBook(int inBookID){
         //tested
@@ -89,6 +101,15 @@ public class  BookManager {
                 // if checked in and was in waitList then call the removeFromWaitList method
                 removeFromWaitList(b);
             }
+        }
+        try {
+            FileWriter writer = new FileWriter(file);
+            for (Book b: bookList){
+                writer.write("\n"+ b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID());
+            }
+            writer.close();
+        }catch(IOException ex) {
+            System.out.println("Error.");
         }
     }
     public static void bookLocation(int inBookID){
