@@ -101,6 +101,7 @@ public class User {
                                         BookManager.addBookFromFile("book.txt");
                                         LibrarySystem.initializeFrame();
                                         testFrame.dispose();
+                                        frame.dispose();
                                         //System.out.println(BookManager.printBookList());
                                     }else {
                                         testFrame.dispose();
