@@ -102,7 +102,7 @@ public class User {
                                         LibrarySystem.initializeFrame();
                                         testFrame.dispose();
                                         frame.dispose();
-                                        //System.out.println(BookManager.printBookList());
+
                                     }else {
                                         testFrame.dispose();
                                         JFrame newFrame = new JFrame();
