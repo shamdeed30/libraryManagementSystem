@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -329,42 +330,106 @@ public class LibrarySystem {
                 if ("Enter".equals(command)){
                     String inputID = textBook.getText();
                     testFrame.dispose();
-                    JFrame newFrame = new JFrame();
-                    newFrame.setSize(800, 150);
-                    newFrame.setTitle("Result");
-                    newFrame.setResizable(false);
-                    newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    newFrame.setLayout(new FlowLayout());
-                    newFrame.setLocationRelativeTo(null);
 
-                    Book b2 = null;
-                    for(Book b : BookManager.bookList){
-                        if (String.valueOf(b.getBookID()).equals(inputID)) {
-                            b2 = b;
-                        }
-                    }
-                    if (b2 != null){
-                        BookManager.checkOutBook(b2.getBookID());
-                        JLabel label1 = new JLabel("Successfully check out the following book:");
-                        JLabel label2 = new JLabel(b2.toString());
-                        newFrame.add(label1);
-                        newFrame.add(label2);
-                    } else {
-                        JLabel label = new JLabel("Invalid Book ID");
-                        newFrame.add(label);
-                    }
-                    newFrame.setVisible(true);
-                    JButton back = new JButton("Return");
-                    newFrame.add(back);
-                    back.addActionListener(new AbstractAction() {
+                    JFrame userFrame = new JFrame();
+                    userFrame.setSize(800, 150);
+                    userFrame.setTitle("User Info");
+                    userFrame.setResizable(false);
+                    userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    userFrame.setLayout(new FlowLayout());
+                    userFrame.setLocationRelativeTo(null);
+
+                    JButton enterNext = new JButton("Enter");
+                    JLabel user = new JLabel("Enter your username:");
+                    JTextField userText = new JTextField(20);
+                    userFrame.add(user);
+                    userFrame.add(enterNext);//TODO flag
+                    userFrame.add(userText);
+                    userFrame.setVisible(true);
+                    enterNext.addActionListener(new AbstractAction() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            String command2 = e.getActionCommand();
-                            if ("Return".equals(command2)){
-                                newFrame.dispose();
+                            String cmd = e.getActionCommand();
+                            if ("Enter".equals(cmd)){
+                                String userIn = userText.getText();
+                                userFrame.dispose();
+
+                                JFrame newFrame = new JFrame();
+                                newFrame.setSize(800, 150);
+                                newFrame.setTitle("Result");
+                                newFrame.setResizable(false);
+                                newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                                newFrame.setLayout(new FlowLayout());
+                                newFrame.setLocationRelativeTo(null);
+
+                                if(User.checkAcc(userIn)){
+                                    Book b2 = null;
+                                    for(Book b : BookManager.bookList){
+                                        if (String.valueOf(b.getBookID()).equals(inputID)) {
+                                            b2 = b;
+                                        }
+                                    }
+                                    if (b2 != null){
+                                        BookManager.checkOutBook(b2.getBookID());
+
+                                        JLabel label1 = new JLabel("Successfully check out the following book:");
+                                        JLabel label2 = new JLabel(b2.toString());
+                                        newFrame.add(label1);
+                                        newFrame.add(label2);
+
+                                    } else {
+                                        JLabel label = new JLabel("Invalid Book ID");
+                                        newFrame.add(label);
+                                    }
+                                }
+                                else{
+                                    JLabel l = new JLabel("Invalid username");
+                                    newFrame.add(l);
+                                }
+                                newFrame.setVisible(true);
                             }
+                            //newFrame.setVisible(true);
                         }
                     });
+//                    JFrame newFrame = new JFrame();
+//                    newFrame.setSize(800, 150);
+//                    newFrame.setTitle("Result");
+//                    newFrame.setResizable(false);
+//                    newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//                    newFrame.setLayout(new FlowLayout());
+//                    newFrame.setLocationRelativeTo(null);
+//
+//                    Book b2 = null;
+//                    for(Book b : BookManager.bookList){
+//                        if (String.valueOf(b.getBookID()).equals(inputID)) {
+//                            b2 = b;
+//                        }
+//                    }
+//                    if (b2 != null){
+//                        userFrame.setVisible(true);
+//
+//                        BookManager.checkOutBook(b2.getBookID());
+//
+//                        JLabel label1 = new JLabel("Successfully check out the following book:");
+//                        JLabel label2 = new JLabel(b2.toString());
+//                        newFrame.add(label1);
+//                        newFrame.add(label2);
+//                    } else {
+//                        JLabel label = new JLabel("Invalid Book ID");
+//                        newFrame.add(label);
+//                    }
+//                    newFrame.setVisible(true);
+//                    JButton back = new JButton("Return");
+//                    newFrame.add(back);
+//                    back.addActionListener(new AbstractAction() {
+//                        @Override
+//                        public void actionPerformed(ActionEvent e) {
+//                            String command2 = e.getActionCommand();
+//                            if ("Return".equals(command2)){
+//                                newFrame.dispose();
+//                            }
+//                        }
+//                    });
                 }
             }
         });
@@ -388,18 +453,18 @@ public class LibrarySystem {
         library.getContentPane().setBackground(Color.LIGHT_GRAY);
         library.setLocationRelativeTo(null);
         /**
-            we should change PrintBookList so that it returns something because idk how else to print it here
+         we should change PrintBookList so that it returns something because idk how else to print it here
          */
         //String text = BookManager.printBookList();
         //library.add(new JLabel(text);
         /**
-        String printed = "";
-        for (Book b : BookManager.bookList){
-            printed += "<html>" + b.toString() +"</html>"; // + "<br/>";
-        }
-        //JLabel text = new JLabel(BookManager.printBookList());
-        JLabel text = new JLabel(printed);
-        library.add(text);
+         String printed = "";
+         for (Book b : BookManager.bookList){
+         printed += "<html>" + b.toString() +"</html>"; // + "<br/>";
+         }
+         //JLabel text = new JLabel(BookManager.printBookList());
+         JLabel text = new JLabel(printed);
+         library.add(text);
          */
         for(Book b : BookManager.bookList){
             JLabel label = new JLabel(b.toString());
