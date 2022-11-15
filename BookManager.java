@@ -19,7 +19,8 @@ public class  BookManager {
             String a = bLine[2];
             boolean isC = Boolean.parseBoolean(bLine[3]);
             int ID = Integer.parseInt(bLine[4]);
-            Book b = new Book(n, g, a, isC, ID);
+            String cTo = bLine[5];
+            Book b = new Book(n, g, a, isC, ID, cTo);
             addToBookList(b);
             //we can print individual attribute of a book class
             //System.out.println(b.getGenre());
@@ -40,6 +41,11 @@ public class  BookManager {
             printed += b.toString() + "\n";
         }
         return printed;
+    }
+    public static void printBLHere(){
+        for(Book b : bookList){
+            System.out.println(b.toString());
+        }
     }
     public static void printBookWaitList(){
         //tested
@@ -72,12 +78,14 @@ public class  BookManager {
         // remove from waitlist if checked in
         bookWaitList.remove(book);
     }
-    public static void checkOutBook(int inBookID){
+    public static void checkOutBook(int inBookID, String userName){
         //tested
         // change the book's checkin status to true in bookList
         for (Book b : bookList){
             if (b.getBookID() == inBookID){
                 b.isCheckedOut = true;
+                b.checkedTo = userName;
+
                 // if already checked out then call the addToWaitList method to add the book to waitList
                 addToWaitList(b);
             }
@@ -85,7 +93,7 @@ public class  BookManager {
         try {
             FileWriter writer = new FileWriter(file);
             for (Book b: bookList){
-                writer.write(b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID() + "\n");
+                writer.write(b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID() + "," + b.getCheckedTo() + "\n");
             }
             writer.close();
         }catch(IOException ex) {
@@ -98,6 +106,7 @@ public class  BookManager {
         for (Book b : bookList){
             if (b.getBookID() == inBookID){
                 b.isCheckedOut = false;
+                b.checkedTo = "none";
                 // if checked in and was in waitList then call the removeFromWaitList method
                 removeFromWaitList(b);
             }
@@ -105,7 +114,8 @@ public class  BookManager {
         try {
             FileWriter writer = new FileWriter(file);
             for (Book b: bookList){
-                writer.write("\n"+ b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID());
+                writer.write(b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID() + "," + b.getCheckedTo() + "\n");
+               // writer.write("\n"+ b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID());
             }
             writer.close();
         }catch(IOException ex) {
@@ -186,11 +196,13 @@ public class  BookManager {
 //        ArrayList<Book> BL = new ArrayList<Book>();
 
         addBookFromFile("book.txt");
-        //printBookList();
-        checkOutBook(213);
+        printBLHere();
+
+//        printBookList();
+//        checkOutBook(213);
 //        printBookList();
 //        printBookWaitList();
-        getBookInfo(222);
+//        getBookInfo(222);
         //searchBook("sci");
 
 //        String s = "abcd";
