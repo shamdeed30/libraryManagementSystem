@@ -382,16 +382,6 @@ public class LibrarySystem {
         library.setSize(1000, 500);
         library.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         library.setLayout(new FlowLayout());
-
-        //TODO trial of bolding
-        //Font f = new Font("LucidaSans", Font.BOLD, 14);
-
-        //AttributedString as= new AttributedString("Example text string");
-
-        //as.addAttribute(TextAttribute.FONT, f);
-
-        // frame not resizable
-        //library.setResizable(false);
         library.getContentPane().setBackground(Color.LIGHT_GRAY);
         library.setLocationRelativeTo(null);
         /**
