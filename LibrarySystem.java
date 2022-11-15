@@ -403,8 +403,10 @@ public class LibrarySystem {
          library.add(text);
          */
         for(Book b : BookManager.bookList){
-            JLabel label = new JLabel(b.toString());
+            //JLabel label = new JLabel(b.toString());
+            JLabel label = new JLabel("<html>" + "<B>" + "Title: " + "</B>" + b.getTitle() + "<B>"+" Genre: "+ "</B>" + b.getGenre() + "<B>" + " Author: " + "</B>" + b.getAuthor() + "<B>" + " Checkin Status: " + "</B>" + b.getCheckedOutSt() + "<B>" + " Book ID: " +"</B>" + b.getBookID()+ "<B>" + " Checked to: " + "</B>" + b.getCheckedTo() +"</html>");
             library.add(label);
+
         }
         library.setVisible(true);
         JButton back = new JButton("Return");
