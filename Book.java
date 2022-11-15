@@ -56,7 +56,7 @@ public class Book {
 
     @Override
     public String toString(){
-        return("Title: " + this.getTitle() + "; Genre: " + this.getGenre() + "; Author: " + this.getAuthor() + "; Checkin Status: " + this.getCheckedOutSt() + "; Book ID: " + this.getBookID() + "; Checked to: " + this.checkedTo);
+        return("<html>" + "<B>" + "Title: " + "</B>" + this.getTitle() + "<B>"+" Genre: "+ "</B>" + this.getGenre() + "<B>" + " Author: " + "</B>" + this.getAuthor() + "<B>" + " Checkin Status: " + "</B>" + this.getCheckedOutSt() + "<B>" + " Book ID: " +"</B>" + this.getBookID()+ "<B>" + " Checked to: " + "</B>" + this.getCheckedTo() +"</html>");
     }
 
 
