@@ -1,10 +1,10 @@
-universe,sci-fi,robin,false,213
-universe,fiction,max,false,222
-flower,fiction,miller,false,221
-the midnight library,fantasy,matt haig,false,345
-all your perfects,romance,colleen hoover,false,123
-the kite runner,drama,khaled hosseini,false,765
-pride and prejudice,romance,jane austen,false,251
-norwegian wood,romance,haruki murakami,false,982
-sputnik sweetheart,fiction,haruki murakami,false,276
-the outsiders,drama,s.e.hinton,false,876
+universe,sci-fi,robin,false,213,none
+universe,fiction,max,false,222,none
+flower,fiction,miller,true,221,none
+the midnight library,fantasy,matt haig,false,345,none
+all your perfects,romance,colleen hoover,false,123,none
+the kite runner,drama,khaled hosseini,false,765,none
+pride and prejudice,romance,jane austen,false,251,none
+norwegian wood,romance,haruki murakami,false,982,none
+sputnik sweetheart,fiction,haruki murakami,false,276,none
+the outsiders,drama,s.e.hinton,false,876,none
