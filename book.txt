@@ -6,7 +6,7 @@ Norwegian Wood,Romance,Haruki Murakami,false,982,none
 Sputnik Sweetheart,Fiction,Haruki Murakami,false,276,none
 The Outsiders,Drama,S. E. Hinton,false,876,none
 The Sun Is Also a Star,Fiction,Nicola Yoon,false,198,none
-Educated,Memoir,Tara Westover,false,213,none
+Educated,Memoir,Tara Westover,true,213,none
 The Goldfinch,Thriller,Donna Tartt,false,143,none
 Daisy Jones and The Six,Fiction,Taylor Jenkins Reid,false,723,none
 The Hobbit,Fantasy,J. R. R. Tolkien,false,178,none
