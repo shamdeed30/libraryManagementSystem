@@ -22,37 +22,11 @@ public class  BookManager {
             String cTo = bLine[5];
             Book b = new Book(n, g, a, isC, ID, cTo);
             addToBookList(b);
-            //we can print individual attribute of a book class
-            //System.out.println(b.getGenre());
             line = br.readLine();
         }
         br.close();
-        //we can print the whole arraylist
-//        for (Book b : bookList){
-//            System.out.println(b.toString());
-//        }
-        //we can print any attributes of a specific book
-//        System.out.println(bookList.get(0).getBookID());
     }
-    public static String printBookList(){
-        // tested
-        String printed = "";
-        for (Book b : bookList){
-            printed += b.toString() + "\n";
-        }
-        return printed;
-    }
-    public static void printBLHere(){
-        for(Book b : bookList){
-            System.out.println(b.toString());
-        }
-    }
-    public static void printBookWaitList(){
-        //tested
-        for (Book b : bookWaitList){
-            System.out.println(b.toString());
-        }
-    }
+
     public static void addToBookList(Book book){
         // tested
         bookList.add(book);
@@ -61,17 +35,6 @@ public class  BookManager {
         //tested
         // add book to waitlist if checked out
         bookWaitList.add(book);
-    }
-    public static void removeFromBookList(int inBookID){
-        //TODO not working - ignoring it for now since we can manipulate bookdata directly from the txt file
-        // remove book from bookList
-        for(Book b : bookList){
-            if(b.getBookID() == inBookID){
-                System.out.println("success");
-                bookList.remove(b);
-            }
-        }
-        //bookList.remove(book);
     }
     public static void removeFromWaitList(Book book){
         //tested
@@ -85,7 +48,6 @@ public class  BookManager {
             if (b.getBookID() == inBookID){
                 b.isCheckedOut = true;
                 b.checkedTo = userName;
-
                 // if already checked out then call the addToWaitList method to add the book to waitList
                 addToWaitList(b);
             }
@@ -115,100 +77,10 @@ public class  BookManager {
             FileWriter writer = new FileWriter(file);
             for (Book b: bookList){
                 writer.write(b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID() + "," + b.getCheckedTo() + "\n");
-               // writer.write("\n"+ b.getTitle() + "," + b.getGenre() + "," + b.getAuthor() + "," + b.getCheckedOut() + "," +b.getBookID());
             }
             writer.close();
         }catch(IOException ex) {
             System.out.println("Error.");
         }
-    }
-    public static void bookLocation(int inBookID){
-        //tested
-        // maybe tell the shelf location based on genre and then tell the book ID?
-        for (Book b : bookList){
-            if (b.getBookID() == inBookID){
-                System.out.println("The book is in " + b.getGenre() + " shelf");
-                System.out.println("The book's id is " + b.getBookID());
-            }
-        }
-    }
-    public static void checkBookStatus(int inBookID){
-        //tested
-        for(Book b : bookList){
-            if(b.getBookID() == inBookID){
-                if(b.getCheckedOut() == false){
-                    System.out.println("The book is not checked out.");
-                }
-                else{
-                    System.out.println("The book is already checked out.");
-                }
-            }
-        }
-    }
-    public static void getBookInfo(int inBookID){
-        //tested
-        boolean bool = false;
-        for (Book b : bookList){
-            if (b.getBookID() == inBookID){
-                bool = true;
-                System.out.println(b.toString());
-//                System.out.println("Title: " + b.getTitle());
-//                System.out.println("Genre: " + b.getGenre());
-//                System.out.println("Author: " + b.getAuthor());
-//                if(b.getCheckedOut() == false){
-//                    System.out.println("Checkin Status: Not checked out");
-//                }
-            }
-        }
-        if(bool == false){
-            System.out.println("There is no book with this Book ID!");
-        }
-    }
-
-    public static void searchBook(String keyWord){
-        //tested
-        //TODO search by keyword?? or individually??
-        ArrayList<Book> keyWordList = new ArrayList<>();
-        boolean bool = false;
-        for(Book b : bookList){
-            if(b.getTitle().toLowerCase().contains(keyWord.toLowerCase())){
-                bool = true;
-                keyWordList.add(b);
-            } else if (b.getGenre().toLowerCase().contains(keyWord.toLowerCase())) {
-                bool = true;
-                keyWordList.add(b);
-            } else if (b.getAuthor().toLowerCase().contains(keyWord.toLowerCase())) {
-                bool = true;
-                keyWordList.add(b);
-            }
-        }
-        if(bool == false){
-            System.out.println("There is no book with this keyword!");
-        }
-        for(Book b : keyWordList){
-            System.out.println(b.toString());
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
-//        Book b1 = new Book("my book", "fic", "me", false, 323);
-//        Book b2 = new Book("ur book", "sci-fi", "u",false, 832122);
-//        ArrayList<Book> BL = new ArrayList<Book>();
-
-        addBookFromFile("book.txt");
-        printBLHere();
-
-//        printBookList();
-//        checkOutBook(213);
-//        printBookList();
-//        printBookWaitList();
-//        getBookInfo(222);
-        //searchBook("sci");
-
-//        String s = "abcd";
-//        String sPart = "bc";
-//        System.out.println(s.cotains);
-        //hasWord("Uni");
-
     }
 }
