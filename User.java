@@ -12,7 +12,7 @@ import java.io.IOException;
 public class User {
     private static String foldername;
     private static String filename;
-    public static boolean createbank(String path) {
+    public static boolean createfolder(String path) {
         File file = null;
         try {
             file = new File(path);
@@ -56,7 +56,7 @@ public class User {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         foldername = "librarySystem";
-        if (createbank(foldername)) {
+        if (createfolder(foldername)) {
             System.out.println("System created");
         } else {
             System.out.println("System exist");

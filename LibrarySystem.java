@@ -2,7 +2,9 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.font.TextAttribute;
 import java.io.IOException;
+import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -384,6 +386,13 @@ public class LibrarySystem {
         //library.setLayout(new BoxLayout(library.getContentPane(), BoxLayout.PAGE_AXIS));
         library.setLayout(new FlowLayout());
 
+        //TODO trial of bolding
+        Font f = new Font("LucidaSans", Font.BOLD, 14);
+
+        AttributedString as= new AttributedString("Example text string");
+
+        as.addAttribute(TextAttribute.FONT, f);
+
         // frame not resizable
         //library.setResizable(false);
         library.getContentPane().setBackground(Color.LIGHT_GRAY);
@@ -403,7 +412,12 @@ public class LibrarySystem {
          library.add(text);
          */
         for(Book b : BookManager.bookList){
+
+//            JLabel label1 = new JLabel(b.getTitle());
             JLabel label = new JLabel(b.toString());
+//            Font font = new Font("Courier", Font.BOLD,12);
+//            label1.setFont(font);
+//            library.add(label1);
             library.add(label);
         }
         library.setVisible(true);

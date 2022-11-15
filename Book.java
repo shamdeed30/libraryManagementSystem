@@ -1,9 +1,9 @@
 public class Book {
-    String title;
+    private String title;
     boolean isCheckedOut;
-    String genre;
-    String author;
-    int bookID;
+    private String genre;
+    private String author;
+    private int bookID;
     String checkedTo;
 
     public Book(String _title, String _genre, String _author, boolean isCheckedOut_, int _bookID, String checkedTo) {
