@@ -2,7 +2,9 @@ import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.font.TextAttribute;
 import java.io.IOException;
+import java.text.AttributedString;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -65,7 +67,7 @@ public class LibrarySystem {
                             //original frame disappears and the new one show up with results of the search based on input keyword
                             testFrame.dispose();
                             JFrame newFrame = new JFrame();
-                            newFrame.setSize(800, 250);
+                            newFrame.setSize(900, 250);
                             newFrame.setTitle("Result");
                             newFrame.setResizable(false);
                             newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -184,7 +186,7 @@ public class LibrarySystem {
                     String inputID = textBook.getText();
                     testFrame.dispose();
                     JFrame newFrame = new JFrame();
-                    newFrame.setSize(800, 150);
+                    newFrame.setSize(900, 150);
                     newFrame.setTitle("Result");
                     newFrame.setResizable(false);
                     newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -247,7 +249,7 @@ public class LibrarySystem {
                     String inputID = textBook.getText();
                     testFrame.dispose();
                     JFrame newFrame = new JFrame();
-                    newFrame.setSize(800, 150);
+                    newFrame.setSize(900, 150);
                     newFrame.setTitle("Result");
                     newFrame.setResizable(false);
                     newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -312,7 +314,7 @@ public class LibrarySystem {
                     testFrame.dispose();
 
                     JFrame userFrame = new JFrame();
-                    userFrame.setSize(800, 150);
+                    userFrame.setSize(900, 150);
                     userFrame.setTitle("User Info");
                     userFrame.setResizable(false);
                     userFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -335,7 +337,7 @@ public class LibrarySystem {
                                 userFrame.dispose();
 
                                 JFrame newFrame = new JFrame();
-                                newFrame.setSize(800, 150);
+                                newFrame.setSize(900, 150);
                                 newFrame.setTitle("Result");
                                 newFrame.setResizable(false);
                                 newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -383,6 +385,13 @@ public class LibrarySystem {
         library.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //library.setLayout(new BoxLayout(library.getContentPane(), BoxLayout.PAGE_AXIS));
         library.setLayout(new FlowLayout());
+
+        //TODO trial of bolding
+        Font f = new Font("LucidaSans", Font.BOLD, 14);
+
+        AttributedString as= new AttributedString("Example text string");
+
+        as.addAttribute(TextAttribute.FONT, f);
 
         // frame not resizable
         //library.setResizable(false);
