@@ -4,7 +4,7 @@ The Kite Runner,Drama,Khaled Hosseini,false,765,none
 Pride and Prejudice,Romance,Jane Austen,false,251,none
 Norwegian Wood,Romance,Haruki Murakami,false,982,none
 Sputnik Sweetheart,Fiction,Haruki Murakami,false,276,none
-The Outsiders,Drama,S.E.Hinton,false,876,none
+The Outsiders,Drama,S. E. Hinton,false,876,none
 The Sun Is Also a Star,Fiction,Nicola Yoon,false,198,none
 Educated,Memoir,Tara Westover,false,213,none
 The Goldfinch,Thriller,Donna Tartt,false,143,none
