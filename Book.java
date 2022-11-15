@@ -30,7 +30,6 @@ public class Book {
         else{
             return "checked out";
         }
-        //return this.isCheckedOut;
     }
 
     public String getGenre() {
@@ -48,23 +47,9 @@ public class Book {
         return this.checkedTo;
     }
 
-//    public String printBook(){
-//        String print = "";
-//        print += this.getTitle() + ", " + this.getAuthor() + ", " + this.getGenre();
-//        return print;
-//    }
-
     @Override
     public String toString(){
         return("<html>" + "<B>" + "Title: " + "</B>" + this.getTitle() + "<B>"+" Genre: "+ "</B>" + this.getGenre() + "<B>" + " Author: " + "</B>" + this.getAuthor() + "<B>" + " Checkin Status: " + "</B>" + this.getCheckedOutSt() + "<B>" + " Book ID: " +"</B>" + this.getBookID()+ "<B>" + " Checked to: " + "</B>" + this.getCheckedTo() +"</html>");
-    }
-
-
-    public static void main(String[] args){
-        Book testBook = new Book("xyz", "fic", "rob", false, 444, "me");
-//        testBook.printBook();
-        System.out.println(User.checkAcc("sham2"));
-
     }
 }
 
