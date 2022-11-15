@@ -4,13 +4,15 @@ public class Book {
     String genre;
     String author;
     int bookID;
+    String checkedTo;
 
-    public Book(String _title, String _genre, String _author, boolean isCheckedOut_, int _bookID) {
+    public Book(String _title, String _genre, String _author, boolean isCheckedOut_, int _bookID, String checkedTo) {
         this.title = _title;
         this.genre = _genre;
         this.author = _author;
         this.isCheckedOut = isCheckedOut_;
         this.bookID = _bookID;
+        this.checkedTo = checkedTo;
     }
 
     public String getTitle() {
@@ -42,6 +44,9 @@ public class Book {
     public int getBookID() {
         return this.bookID;
     }
+    public String getCheckedTo(){
+        return this.checkedTo;
+    }
 
 //    public String printBook(){
 //        String print = "";
@@ -51,14 +56,15 @@ public class Book {
 
     @Override
     public String toString(){
-        return("Title: " + this.getTitle() + "; Genre: " + this.getGenre() + "; Author: " + this.getAuthor() + "; Checkin Status: " + this.getCheckedOutSt() + "; Book ID: " + this.getBookID());
+        return("Title: " + this.getTitle() + "; Genre: " + this.getGenre() + "; Author: " + this.getAuthor() + "; Checkin Status: " + this.getCheckedOutSt() + "; Book ID: " + this.getBookID() + "; Checket to: " + this.checkedTo);
     }
 
 
     public static void main(String[] args){
-        Book testBook = new Book("xyz", "fic", "rob", false, 444);
+        Book testBook = new Book("xyz", "fic", "rob", false, 444, "me");
 //        testBook.printBook();
-        System.out.println(testBook.toString());
+        System.out.println(User.checkAcc("sham2"));
+
     }
 }
 
