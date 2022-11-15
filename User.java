@@ -37,6 +37,23 @@ public class User {
         return flag;
     }
 
+    public static boolean checkAcc (String s){
+        String f = "librarySystem/"+ s + ".txt";
+        File acc = new File(f);
+        if(acc.exists()){
+            return true;
+        }
+        else return false;
+    }
+    //TODO get username from file
+    public static void getUserName(String s){
+        String fName = "librarySystem/" + s + ".txt";
+        File acc = new File(fName);
+        if(acc.exists()){
+            return ;
+        }
+    }
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
         foldername = "librarySystem";
         if (createbank(foldername)) {
@@ -99,6 +116,10 @@ public class User {
                                     if (array1[1].equals(pwinrecord)) {
                                         System.out.println("Access Granted!");
                                         BookManager.addBookFromFile("book.txt");
+
+                                        //TODO work here
+                                        String userN;
+
                                         LibrarySystem.initializeFrame();
                                         testFrame.dispose();
                                         frame.dispose();
@@ -200,7 +221,7 @@ public class User {
                                 if (createaccount(new_name)) {
                                     try {
                                         FileWriter writer = new FileWriter("librarySystem/"+ new_name +".txt");
-                                        writer.write("Username:" + new_name + ",");
+                                        writer.write("Username: " + new_name + ",");
                                         writer.write("\nPassword: "+ pw + ",");
                                         //writer.flush();
                                         writer.close();
