@@ -45,14 +45,7 @@ public class User {
         }
         else return false;
     }
-    //TODO get username from file
-    public static void getUserName(String s){
-        String fName = "librarySystem/" + s + ".txt";
-        File acc = new File(fName);
-        if(acc.exists()){
-            return ;
-        }
-    }
+
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         foldername = "librarySystem";
@@ -116,10 +109,6 @@ public class User {
                                     if (array1[1].equals(pwinrecord)) {
                                         System.out.println("Access Granted!");
                                         BookManager.addBookFromFile("book.txt");
-
-                                        //TODO work here
-                                        String userN;
-
                                         LibrarySystem.initializeFrame();
                                         testFrame.dispose();
                                         frame.dispose();
@@ -151,8 +140,6 @@ public class User {
                                 }
                             }catch (IOException ext){
                                 if (ext instanceof FileNotFoundException){
-                                    //System.out.println("Account does not exist.");
-                                    //ext.printStackTrace();
                                     testFrame.dispose();
                                     JFrame newFrame = new JFrame();
                                     newFrame.setSize(400, 150);
@@ -182,7 +169,6 @@ public class User {
                         }
                     }
                 });
-                //testFrame.add(enter);
                 testFrame.setVisible(true);
             }
         });
@@ -282,7 +268,6 @@ public class User {
                         }
                     }
                 });
-                //testFrame.add(enter);
                 testFrame.setVisible(true);
             }
         });
