@@ -22,7 +22,6 @@ public class LibrarySystem {
         frame.getContentPane().setBackground(Color.WHITE);
 
         // the box layout will be from top to bottom
-        // frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
         // testing a different layout
         frame.setLayout(new FlowLayout());
 
@@ -159,7 +158,6 @@ public class LibrarySystem {
         frame.add(get_book_information);
         frame.add(check_in_button);
         frame.add(check_out_button);
-        //frame.add(check_book_status);
         frame.add(exit);
         frame.setVisible(true);
     }
@@ -383,15 +381,14 @@ public class LibrarySystem {
         library.setTitle("Library");
         library.setSize(1000, 500);
         library.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //library.setLayout(new BoxLayout(library.getContentPane(), BoxLayout.PAGE_AXIS));
         library.setLayout(new FlowLayout());
 
         //TODO trial of bolding
-        Font f = new Font("LucidaSans", Font.BOLD, 14);
+        //Font f = new Font("LucidaSans", Font.BOLD, 14);
 
-        AttributedString as= new AttributedString("Example text string");
+        //AttributedString as= new AttributedString("Example text string");
 
-        as.addAttribute(TextAttribute.FONT, f);
+        //as.addAttribute(TextAttribute.FONT, f);
 
         // frame not resizable
         //library.setResizable(false);
@@ -400,8 +397,7 @@ public class LibrarySystem {
         /**
          we should change PrintBookList so that it returns something because idk how else to print it here
          */
-        //String text = BookManager.printBookList();
-        //library.add(new JLabel(text);
+
         /**
          String printed = "";
          for (Book b : BookManager.bookList){
@@ -413,7 +409,6 @@ public class LibrarySystem {
          */
         for(Book b : BookManager.bookList){
             JLabel label = new JLabel(b.toString());
-            //JLabel label = new JLabel("<html>" + "<B>" + "Title: " + "</B>" + b.getTitle() + "<B>"+" Genre: "+ "</B>" + b.getGenre() + "<B>" + " Author: " + "</B>" + b.getAuthor() + "<B>" + " Checkin Status: " + "</B>" + b.getCheckedOutSt() + "<B>" + " Book ID: " +"</B>" + b.getBookID()+ "<B>" + " Checked to: " + "</B>" + b.getCheckedTo() +"</html>");
             library.add(label);
 
         }
