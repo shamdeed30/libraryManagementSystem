@@ -75,11 +75,11 @@ public class LibrarySystem {
 
                             ArrayList<Book> books = new ArrayList<>();
                             for(Book b : BookManager.bookList){
-                                if (b.getTitle().contains(keyword)){
+                                if (b.getTitle().toLowerCase().contains(keyword.toLowerCase())){
                                     books.add(b);
-                                } else if (b.getGenre().contains(keyword)) {
+                                } else if (b.getGenre().toLowerCase().contains(keyword.toLowerCase())) {
                                     books.add(b);
-                                } else if (b.getAuthor().contains(keyword)) {
+                                } else if (b.getAuthor().toLowerCase().contains(keyword.toLowerCase())) {
                                     books.add(b);
                                 }
                             }
