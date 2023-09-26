@@ -24,10 +24,6 @@ Our Library Management System boasts a range of features to provide a comprehens
 To get started with our Library Management System, follow these steps:
 
 1. Clone the Repository: Refer to your operating system's command prompt (Windows), Apple Terminal (macOS), or Linux Terminal to clone the repository.
-   
-   ```bash
-   git clone https://github.com/your/repository.git
-   ```
 
 2. Compile Java Files: Once the repository is cloned, compile the Java files to ensure everything is functional.
 
@@ -41,6 +37,5 @@ To get started with our Library Management System, follow these steps:
 
 We hope our Library Management System enhances your library experience by providing a convenient and efficient way to access and interact with the library's resources. Feel free to explore, search, and manage your library needs with ease.
 
-For any questions, feedback, or issues, please contact [your contact information].
-
+For any questions, feedback, or issues, please contact s_kabir@coloradocollege.edu!
 Thank you for using our Library Management System!
