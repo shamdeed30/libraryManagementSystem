@@ -1,4 +1,4 @@
-# A simple library management platform using Java for tracking books!
+*** A simple library management platform using Java for tracking books!
 
 # Library Management System
 
